@@ -1,23 +1,8 @@
 ﻿@page
-@model Enterprise_Risk_Management_System.Pages.UsersModel
+@model Enterprise_Risk_Management_System.Pages.RiskLogsModel
 @{
 }
 
-
-<script>
-    function AddEdituser() {
-      // Your logic to save data here (AJAX or form handling)
-
-      // Show SweetAlert success popup
-      Swal.fire({
-        icon: 'success',
-        title: 'User saved!',
-        text: 'The user details have been successfully saved.',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
-      });
-    }
-</script>
 
 <div>
     <div class="d-flex justify-content-between align-items-center">
@@ -35,11 +20,14 @@
         <table id="userListTbl" class="table table-striped gy-5 gs-5">
             <thead>
                 <tr class="fw-semibold fs-6">
-                    <th>Full Name</th>
-                    <th>Role</th>
-                    <th>Email Address</th>
+                    <th>ID</th>
+                    <th>Risk Title</th>
+                    <th>Category</th>
+                    <th>Owner</th>
+                    <th>Likelihood</th>
+                    <th>Impact</th>
                     <th>Status</th>
-                    <th class="text-end no-sort no-pointer w-25">Actions</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,49 +36,12 @@
                     <td>Admin</td>
                     <td>janedoe@gmail.com</td>
                     <td><span class="badge bg-success">Active</span></td>
+                    <td>janedoe@gmail.com</td>
+                    <td>janedoe@gmail.com</td>
+                    <td>janedoe@gmail.com</td>
                     <td class="text-end">
                         <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#userEditModal">Edit</a>
                         <a href="#" class="btn btn-danger btn-sm" onclick="showDeactivateModal();">Deactivate</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>John Peter</td>
-                    <td>User</td>
-                    <td>johndoe@gmail.com</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm" onclick="showDeactivateModal();">Deactivate</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jayden Doe</td>
-                    <td>User</td>
-                    <td>johndoe@gmail.com</td>
-                    <td><span class="badge bg-danger">Inactive</span></td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="">Edit</a>
-                        <a href="#" class="btn btn-primary btn-sm" onclick="showActivateModal();">Activate</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Smith Nyiko</td>
-                    <td>User</td>
-                    <td>Test3@gmail.com</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm" onclick="showDeactivateModal();">Deactivate</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mason Bret</td>
-                    <td>Siba</td>
-                    <td>jgrtvtre@gmail.com</td>
-                    <td><span class="badge bg-danger">Inactive</span></td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#userAddModal">Edit</a>
-                        <a href="#" class="btn btn-primary btn-sm" onclick="showActivateModal();">Activate</a>
                     </td>
                 </tr>
             </tbody>
@@ -100,7 +51,8 @@
 
 <!-- User Add Modal -->
 <div class="modal fade" id="userAddModal" data-bs-backdrop="static" tabindex="-1">
-    <div class="modal-dialog">0
+    <div class="modal-dialog">
+        0
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title text-center" id="useraddedittitle">Add User</h3>
@@ -167,5 +119,4 @@
         </div>
     </div>
 </div>
-
 
