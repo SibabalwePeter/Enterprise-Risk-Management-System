@@ -1,27 +1,27 @@
 ﻿using ERMS.core.Models;
 using ERMS.DAL.Data;
 
-namespace ERMS.DAL.Users
+namespace ERMS.DAL
 {
-    public class UserService
+    public class ProductService
     {
         private readonly AppDbContext _dbContext;
-        public UserService(AppDbContext dbContext)
+        public ProductService(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<List<ProductModel>> GetUsers()
+        public async Task<List<ProductModel>> GetProducts()
         {
             try
             {
                 var users = _dbContext.Products
-                .Select(u =>
+                .Select(p =>
                 new ProductModel
                 {
-                    productID = u.UserId,
-                    Name = u.Name,
-                    Description = u.FirstName,
+                    productID = p.ProductId,
+                    Name = p.Name,
+                    Description = p.Description,
                 })
                 .ToList();
                 return users;
@@ -29,7 +29,7 @@ namespace ERMS.DAL.Users
             }
             catch (Exception ex)
             {
-                throw new Exception("An error occurred while retrieving users.", ex);
+                throw new Exception("An error occurred while retrieving products.", ex);
             }
         }
     }

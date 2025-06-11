@@ -1,5 +1,5 @@
 ﻿using ERMS.core.Models;
-using ERMS.services.Users;
+using ERMS.core.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERMS.api.Controllers
@@ -8,10 +8,10 @@ namespace ERMS.api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IProductService _productsService;
+        public UserController(IProductService productsService)
         {
-            _userService = userService;
+            _productsService = productsService;
         }
 
         [HttpGet("get-users")]

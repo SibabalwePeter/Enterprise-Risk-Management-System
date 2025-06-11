@@ -13,16 +13,30 @@ public partial class AppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Product> Products { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.ToTable("Product");
+
+            entity.Property(e => e.ProductId)
+                .ValueGeneratedNever()
+                .HasColumnName("productID");
+            entity.Property(e => e.Description).HasMaxLength(50);
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(30);
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("User");
+            entity.ToTable("User");
 
+            entity.Property(e => e.UserId).HasColumnName("userID");
             entity.Property(e => e.Email)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -32,7 +46,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(30);
-            entity.Property(e => e.UserId).HasColumnName("userID");
         });
 
         OnModelCreatingPartial(modelBuilder);
