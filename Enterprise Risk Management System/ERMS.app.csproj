@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERMS.core\ERMS.core.csproj" />
-    <ProjectReference Include="..\ERMS.services\ERMS.services.csproj" />
+    <ProjectReference Include="..\ERMS.core\ERMS.DL.csproj" />
+    <ProjectReference Include="..\ERMS.services\ERMS.BL.csproj" />
   </ItemGroup>
 
 </Project>

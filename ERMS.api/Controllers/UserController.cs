@@ -15,12 +15,12 @@ namespace ERMS.api.Controllers
         }
 
         [HttpGet("get-users")]
-        public async Task<ActionResult<List<UserModel>>> GetUsers()
+        public async Task<ActionResult<List<ProductModel>>> GetUsers()
         {
             try
             {
-                var users = await _userService.GetUsers();
-                return Ok(users);
+                //var users = await _userService.GetUsers();
+                return Ok();
             }
             catch(Exception ex)
             {

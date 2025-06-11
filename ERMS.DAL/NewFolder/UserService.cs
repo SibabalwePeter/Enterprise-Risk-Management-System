@@ -1,14 +1,9 @@
 ﻿using ERMS.core.Models;
 using ERMS.DAL.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ERMS.services.Users
+namespace ERMS.DAL.Users
 {
-    public class UserService : IUserService
+    public class UserService
     {
         private readonly AppDbContext _dbContext;
         public UserService(AppDbContext dbContext)
@@ -16,17 +11,17 @@ namespace ERMS.services.Users
             _dbContext = dbContext;
         }
 
-        public async Task<List<UserModel>> GetUsers()
+        public async Task<List<ProductModel>> GetUsers()
         {
             try
             {
-                var users = _dbContext.Users
+                var users = _dbContext.Products
                 .Select(u =>
-                new UserModel
+                new ProductModel
                 {
-                    userID = u.UserId,
-                    LastName = u.Name,
-                    FirstName = u.FirstName,
+                    productID = u.UserId,
+                    Name = u.Name,
+                    Description = u.FirstName,
                 })
                 .ToList();
                 return users;

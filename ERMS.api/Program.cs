@@ -11,12 +11,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ✅ REGISTER ALL DEPENDENCIES FIRST
-builder.Services.AddApiDI(builder.Configuration);
-var sp = builder.Services.BuildServiceProvider();
-var ctx = sp.GetService<AppDbContext>();
-var test = ctx != null ? "✅ AppDbContext resolved" : "❌ Failed to resolve";
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

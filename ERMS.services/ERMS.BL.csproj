@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERMS.core\ERMS.core.csproj" />
+    <ProjectReference Include="..\ERMS.core\ERMS.DL.csproj" />
     <ProjectReference Include="..\ERMS.DAL\ERMS.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
