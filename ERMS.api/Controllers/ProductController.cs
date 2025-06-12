@@ -1,26 +1,26 @@
 ﻿using ERMS.core.Models;
-using ERMS.core.Models.Interfaces;
+using ERMS.DL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERMS.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class ProductController : ControllerBase
     {
         private readonly IProductService _productsService;
-        public UserController(IProductService productsService)
+        public ProductController(IProductService productsService)
         {
             _productsService = productsService;
         }
 
-        [HttpGet("get-users")]
+        [HttpGet("get-products")]
         public async Task<ActionResult<List<ProductModel>>> GetUsers()
         {
             try
             {
-                //var users = await _userService.GetUsers();
-                return Ok();
+                var products = await _productsService.GetProducts();
+                return Ok(products);
             }
             catch(Exception ex)
             {

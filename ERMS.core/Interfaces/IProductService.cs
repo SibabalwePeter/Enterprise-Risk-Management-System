@@ -1,6 +1,6 @@
 ﻿using ERMS.core.Models;
 
-namespace ERMS.core.Models.Interfaces
+namespace ERMS.DL.Interfaces
 {
     public interface IProductService
     {

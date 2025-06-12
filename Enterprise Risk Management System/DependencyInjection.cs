@@ -1,8 +1,4 @@
-﻿using ERMS.core;
-using ERMS.DAL;
-using ERMS.services;
-
-namespace Enterprise_Risk_Management_System
+﻿namespace Enterprise_Risk_Management_System
 {
     public static class DependencyInjection
     {

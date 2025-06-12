@@ -1,9 +1,11 @@
 ﻿using ERMS.core.Models;
 using ERMS.DAL.Data;
+using ERMS.DL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ERMS.DAL
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly AppDbContext _dbContext;
         public ProductService(AppDbContext dbContext)
@@ -15,7 +17,7 @@ namespace ERMS.DAL
         {
             try
             {
-                var users = _dbContext.Products
+                var products = await _dbContext.Products
                 .Select(p =>
                 new ProductModel
                 {
@@ -23,8 +25,8 @@ namespace ERMS.DAL
                     Name = p.Name,
                     Description = p.Description,
                 })
-                .ToList();
-                return users;
+                .ToListAsync();
+                return products;
 
             }
             catch (Exception ex)

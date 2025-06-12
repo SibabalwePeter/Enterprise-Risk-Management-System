@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ERMS.core\ERMS.DL.csproj" />
     <ProjectReference Include="..\ERMS.DAL\ERMS.DAL.csproj" />
-    <ProjectReference Include="..\ERMS.services\ERMS.BL.csproj" />
   </ItemGroup>
 
 </Project>
