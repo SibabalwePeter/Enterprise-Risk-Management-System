@@ -23,9 +23,7 @@ public partial class AppDbContext : DbContext
         {
             entity.ToTable("Product");
 
-            entity.Property(e => e.ProductId)
-                .ValueGeneratedNever()
-                .HasColumnName("productID");
+            entity.Property(e => e.ProductId).HasColumnName("productID");
             entity.Property(e => e.Description).HasMaxLength(50);
             entity.Property(e => e.Name)
                 .IsRequired()
