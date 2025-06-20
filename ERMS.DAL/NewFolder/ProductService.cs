@@ -1,6 +1,6 @@
-﻿using ERMS.core.Models;
-using ERMS.DAL.Data;
+﻿using ERMS.DAL.Data;
 using ERMS.DL.Interfaces;
+using ERMS.DL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERMS.DAL

@@ -1,4 +1,4 @@
-﻿using ERMS.core.Models;
+﻿using ERMS.DL.Models;
 
 namespace ERMS.DL.Interfaces
 {

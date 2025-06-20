@@ -1,4 +1,4 @@
-﻿namespace ERMS.core.Models
+﻿namespace ERMS.DL.Models
 {
     public class ProductModel
     {
