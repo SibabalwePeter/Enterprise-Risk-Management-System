@@ -7,7 +7,7 @@ COPY Enterprise.sln .
 COPY ERMS.api/ERMS.api.csproj ERMS.api/
 COPY ERMS.BL/ERMS.BL.csproj ERMS.BL/
 COPY ERMS.DAL/ERMS.DAL.csproj ERMS.DAL/
-COPY ERMS.DL/ERMS.DL.csproj ERMS.DL/
+COPY ERMS.core/ERMS.DL.csproj ERMS.core/
 
 # Restore dependencies
 RUN dotnet restore "Enterprise.sln"
@@ -27,4 +27,5 @@ EXPOSE 80
 EXPOSE 443
 
 COPY --from=build /app/publish .
+
 ENTRYPOINT ["dotnet", "ERMS.api.dll"]
