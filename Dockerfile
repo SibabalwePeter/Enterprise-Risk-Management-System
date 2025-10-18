@@ -3,18 +3,18 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy solution and project files
-COPY "Enterprise\ Risk\ Management\ System.sln" .
+COPY Enterprise\ Risk\ Management\ System.sln .
 COPY ERMS.api/ERMS.api.csproj ERMS.api/
 COPY ERMS.services/ERMS.BL.csproj ERMS.services/
 COPY ERMS.DAL/ERMS.DAL.csproj ERMS.DAL/
 COPY ERMS.core/ERMS.DL.csproj ERMS.core/
 
 # Restore dependencies
-RUN dotnet restore "Enterprise-Risk-Management-System.sln"
+RUN dotnet restore Enterprise\ Risk-Management\ System.sln"
 
 # Copy everything else and build
 COPY . .
-RUN dotnet build "Enterprise-Risk-Management-System.sln" -c Release --no-restore
+RUN dotnet build Enterprise\ Risk\ Management\ System.sln" -c Release --no-restore
 
 # Publish API project
 WORKDIR "/src/ERMS.api"
@@ -29,6 +29,7 @@ EXPOSE 443
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "ERMS.api.dll"]
+
 
 
 
