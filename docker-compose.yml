@@ -12,20 +12,7 @@ services:
     networks:
       - erms-network
 
-  erms-app:
-    build:
-      context: .
-      dockerfile: Dockerfile.app
-    ports:
-      - "5001:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - API__BaseUrl=http://erms-api:80
-    depends_on:
-      - erms-api
-    networks:
-      - erms-network
-
 networks:
   erms-network:
+
     driver: bridge
