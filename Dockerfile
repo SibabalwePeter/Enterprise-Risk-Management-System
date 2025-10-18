@@ -5,7 +5,7 @@ WORKDIR /src
 # Copy solution and project files
 COPY Enterprise.sln .
 COPY ERMS.api/ERMS.api.csproj ERMS.api/
-COPY ERMS.BL/ERMS.services.csproj ERMS.services/
+COPY ERMS.services/ERMS.BL.csproj ERMS.services/
 COPY ERMS.DAL/ERMS.DAL.csproj ERMS.DAL/
 COPY ERMS.core/ERMS.DL.csproj ERMS.core/
 
@@ -29,4 +29,5 @@ EXPOSE 443
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "ERMS.api.dll"]
+
 
